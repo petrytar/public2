@@ -24,5 +24,5 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: petrytar/public
-          token: ${{ secrets.SECRET_DOC }} # `GitHub_PAT` is a secret that contains your PAT
+          token: ${{ secrets.TEST_SECRET_NAME_PUBLIC }} # `GitHub_PAT` is a secret that contains your PAT
           path: my-tools
