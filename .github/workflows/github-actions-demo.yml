@@ -19,8 +19,8 @@ jobs:
       - name: Extract branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
-        run: echo ${{ secrets.SECRET_TOKEN }}
         id: extract_branch
+      - run: echo ${{ secrets.SECRET_TOKEN }}
       - name: Checkout private tools
         uses: actions/checkout@v2
         with:
