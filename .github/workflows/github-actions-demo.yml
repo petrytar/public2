@@ -20,7 +20,7 @@ jobs:
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
-      - run: echo ${{ secrets.SECRET_TOKEN }}
+      - run: echo ${{ github.workspace }}
       - name: Checkout private tools
         uses: actions/checkout@v2
         with:
