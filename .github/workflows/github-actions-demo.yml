@@ -27,4 +27,4 @@ jobs:
           repository: petrytar/warhorse
           token: ${{ secrets.REPO_SECRET_TOKEN }} #  `GitHub_PAT` is a secret that contains your PAT
           path: warhorse
-      - run: cd warhorse; ls -la
+      - run: ./update_doc.sh
