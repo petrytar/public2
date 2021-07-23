@@ -20,10 +20,10 @@ jobs:
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
         id: extract_branch
-      - run: echo ${{ secrets.SECRET_TOKEN }}
+      - run: echo ${{ secrets.SECRET_DOC }}
       - name: Checkout private tools
         uses: actions/checkout@v2
         with:
           repository: petrytar/warhorse
-          token: ${{ secrets.SECRET_TOKEN }} #  `GitHub_PAT` is a secret that contains your PAT
+          token: ${{ secrets.SECRET_DOC }} #  `GitHub_PAT` is a secret that contains your PAT
           path: my-tools
