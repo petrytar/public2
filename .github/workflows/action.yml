@@ -6,7 +6,8 @@ jobs:
     permissions:
       issues: read
     steps:
-      - env:
+      - id: set_var
+        env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api \
