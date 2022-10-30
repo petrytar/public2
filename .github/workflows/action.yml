@@ -2,6 +2,8 @@ name: 'GeeksForGeeks'
 description: 'Say "GeeksForGeeks" to new pull requests'
 author: '[GFG]'
 
+on: push
+
 inputs:
   GITHUB_TOKEN:
     description: 'GitHub token'
