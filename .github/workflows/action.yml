@@ -1,0 +1,18 @@
+on:
+  push:
+jobs:
+  use_api:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: read
+    steps:
+      - id: set_var
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          content=`gh api \
+            -H "Accept: application/vnd.github+json" \
+            /repos/petrytar/public2/issues/comments`
+          echo "::set-output name=packageJson::$content"
+      - run: |
+          echo "${{fromJson(steps.set_var.outputs.packageJson)[0].body}}"
