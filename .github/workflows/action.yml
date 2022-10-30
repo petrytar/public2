@@ -14,7 +14,7 @@ jobs:
         run: |
           content=`gh api \
             -H "Accept: application/vnd.github+json" \
-            /repos/petrytar/public2/issues/comments`
+            /repos/petrytar/public2/pull/3/comments`
           echo "::set-output name=packageJson::$content"
       - run: |
           echo "${{fromJson(steps.set_var.outputs.packageJson)[2].body}}"
