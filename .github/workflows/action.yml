@@ -17,7 +17,7 @@ jobs:
             /repos/petrytar/public2/pulls/3`
           echo "::set-output name=packageJson::$content"
       - run: |
-          echo "${{fromJson(steps.set_var.outputs.packageJson)[2].body}}"
+          echo "${{fromJson(steps.set_var.outputs.packageJson).body}}"
           echo "${{steps.set_var.outputs.packageJson}}"
       - run: echo ${{ github.event }}
 
