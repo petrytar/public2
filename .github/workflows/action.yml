@@ -10,7 +10,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          content=`gh api -H "Accept: application/vnd.github+json" /repos/petrytar/public2/issues/`
+          gh api -H "Accept: application/vnd.github+json" /repos/petrytar/public2/issues/
           echo "::set-output name=packageJson::$content"
       - run: |
           echo "${{fromJson(steps.set_var.outputs.packageJson)[0].body}}"
