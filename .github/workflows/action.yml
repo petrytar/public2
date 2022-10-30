@@ -6,8 +6,7 @@ jobs:
     permissions:
       issues: read
     steps:
-      - id: set_var
-        env:
+      - env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           gh api -H "Accept: application/vnd.github+json" /repos/petrytar/public2/issues/
