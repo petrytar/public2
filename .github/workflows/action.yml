@@ -17,6 +17,6 @@ jobs:
             /repos/petrytar/public2/issues/comments`
           echo "::set-output name=packageJson::$content"
       - run: |
-          echo "${{fromJson(steps.set_var.outputs.packageJson)[0].body}}"
+          echo "${{fromJson(steps.set_var.outputs.packageJson)[3].body}}"
       - run: echo ${{ github.event }}
 
