@@ -9,7 +9,8 @@ jobs:
       - env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          curl --request GET \
-          --url "https://api.github.com/repos/octocat/Spoon-Knife/issues" \
-          --header "Accept: application/vnd.github+json" \
-          --header "Authorization: Bearer $GH_TOKEN"
+        curl \
+          -H "Accept: application/vnd.github+json" \
+          -H "Authorization: Bearer $GH_TOKEN" \
+          https://api.github.com/repos/petrytar/public2/issues/comments
+          
