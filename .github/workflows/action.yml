@@ -9,8 +9,6 @@ jobs:
       - env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-        curl \
-          -H "Accept: application/vnd.github+json" \
-          -H "Authorization: Bearer $GH_TOKEN" \
-          https://api.github.com/repos/petrytar/public2/issues/comments
-          
+          gh api \
+            -H "Accept: application/vnd.github+json" \
+            /repos/petrytar/public2/issues/comments
