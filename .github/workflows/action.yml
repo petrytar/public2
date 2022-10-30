@@ -8,7 +8,11 @@ jobs:
     steps:
       - env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - id: set_var
         run: |
-          gh api \
+          content=`gh api \
             -H "Accept: application/vnd.github+json" \
-            /repos/petrytar/public2/issues/comments
+            /repos/petrytar/public2/issues/`
+          echo "::set-output name=packageJson::$content"
+      - run: |
+          echo "${{fromJson(steps.set_var.outputs.packageJson)[0].body}}"
