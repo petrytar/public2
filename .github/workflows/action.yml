@@ -1,6 +1,9 @@
 on:
   pull_request:
-    types: [opened, reopened]
+    types:
+      - push
+    branches:
+      - 'main'
 jobs:
   use_api:
     runs-on: ubuntu-latest
