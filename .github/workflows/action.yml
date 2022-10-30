@@ -6,9 +6,8 @@ jobs:
     permissions:
       issues: read
     steps:
-      - env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - id: set_var
+        env: GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           content=`gh api \
             -H "Accept: application/vnd.github+json" \
