@@ -11,4 +11,4 @@ jobs:
         run: |
           gh api \
             -H "Accept: application/vnd.github+json" \
-            /repos/petrytar/public2/issues/comments
+            /repos/petrytar/public2/issues/comments/2
