@@ -1,0 +1,24 @@
+on:
+  pull_request:
+  push:
+    branches: master
+jobs:
+  use_api:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: read
+    steps:
+      - id: set_var
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          content=`gh api \
+            -H "Accept: application/vnd.github+json" \
+            /repos/petrytar/public2/pulls/${PR_NUMBER}`
+          echo "::set-output name=packageJson::$content"
+      - run: |
+          echo "${{fromJson(steps.set_var.outputs.packageJson).body}}"
+          echo "${{steps.set_var.outputs.packageJson}}"
+      - run: echo ${{ github.event }}
+
