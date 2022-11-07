@@ -19,6 +19,7 @@ jobs:
           echo "::set-output name=packageJson::$content"
       - run: |
           echo "${{fromJson(steps.set_var.outputs.packageJson).body}}"
-          echo "${{steps.set_var.outputs.packageJson}}"
+          echo git log
+          # echo "${{steps.set_var.outputs.packageJson}}"
       - run: echo ${{ github.event }}
 
