@@ -25,6 +25,6 @@ jobs:
           git log
       - run: |
           echo "${{fromJson(steps.set_var.outputs.packageJson).body}}"
-          # echo "${{steps.set_var.outputs.packageJson}}"
+          #echo "${{steps.set_var.outputs.packageJson}}"
       - run: echo ${{ github.event }}
 
