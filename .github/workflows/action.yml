@@ -21,7 +21,7 @@ jobs:
         with:
           ref: ${{ github.event.pull_request.head.sha }}
           fetch-depth: 0
-        run: |
+      - run: |
           git log
       - run: |
           echo "${{fromJson(steps.set_var.outputs.packageJson).body}}"
